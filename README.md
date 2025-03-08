@@ -1,6 +1,6 @@
 <div align="center">
 <h2>React + TypeScript + TailwindCSS</h2>
-LUSH 🍀
+Twosome 🍀
 
 <!-- ## 목차 -->
   <!-- - [개요](#개요) 
