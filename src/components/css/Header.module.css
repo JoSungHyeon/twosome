@@ -1,0 +1,519 @@
+header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	backdrop-filter: blur(5px);
+}
+
+header .inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 auto;
+	max-width: 1200px;
+	height: 70px;
+}
+
+header .logo {
+	z-index: 999;
+}
+
+header .logo h1 a {
+	font-family: "Noto Serif Display", serif;
+	font-size: 1em;
+	font-weight: 500;
+	color: #fff;
+}
+
+header a { 
+	display: block;
+}
+header.active .logo.on h1 a {
+	color: #fff;
+}
+
+header .pc_menu ul {
+	display: flex;
+	gap: 1.25em;
+}
+
+header .pc_menu ul li a {
+	display: block;
+	line-height: 80px;
+	text-transform: uppercase;
+	font-size: 0.75em;
+	font-weight: 900;
+	letter-spacing: 0.2em;
+	color: #fff;
+	position: relative;
+	padding: 0 20px;
+}
+
+header .pc_menu ul li a::after {
+	position: absolute;
+	content: "";
+	width: 0%;
+	height: 1px;
+	background-color: #fff;
+	bottom: 0px;
+	left: 0;
+	transition: width 0.3s;
+	transform-origin: center;
+}
+
+header.active {
+	background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(5px);
+}
+
+header.active .pc_menu ul li a::after {
+	background-color: #000;
+}
+
+header .pc_menu ul li.active a::after {
+	width: 100%;
+}
+
+header.active .logo h1 a,
+header.active .pc_menu ul li a {
+	color: #000;
+}
+
+/* mobile */
+header .mobile_menu {
+	display: none;
+}
+
+header .mobile_menu ul {
+	width: 100vw;
+	height: 100vh;
+	background-color: #111;
+	position: fixed;
+	top: 0;
+	left: 100%;
+	z-index: 998;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10em 0;
+}
+
+header .mobile_menu ul li {
+	width: 50%;
+	height: 25%;
+}
+
+header .mobile_menu ul a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+header .mobile_menu ul a p {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	text-align: center;
+	font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+	color: #418fde;
+}
+
+header .mobile_menu .mobile_open {
+	width: 25px;
+	height: 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	transition: all 0.5s;
+	position: relative;
+	z-index: 999;
+}
+
+
+header .mobile_menu .mobile_open div {
+	width: 100%;
+	height: 2px;
+	background-color: #fff;
+	border-radius: 6px;
+	transition: all 0.5s;
+}
+
+header.active .mobile_menu .mobile_open div {
+	background-color: #111;
+}
+
+header.active .mobile_menu .mobile_open.on div {
+	background-color: #fff;
+}
+
+header .mobile_menu .mobile_open.on {
+	justify-content: center;
+}
+
+header .mobile_menu .mobile_open.on div:nth-child(1) {
+	transform: rotate(45deg);
+	transform-origin: 11px;
+}
+
+header .mobile_menu .mobile_open.on div:nth-child(2) {
+	display: none;
+}
+
+header .mobile_menu .mobile_open.on div:nth-child(3) {
+	transform: rotate(-45deg);
+	transform-origin: 11px;
+}
+
+@media only screen and (max-width: 1200px) {
+	header .inner {
+		padding: 0 20px;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	header .inner {
+		height: 80px;
+	}
+	header .pc_menu {
+		display: none;
+	}
+
+	header .mobile_menu {
+		display: block;
+	}
+}
+
+/* 전체 화면 오버레이 스타일 */
+.fullOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0; /* 초기 높이는 0 */
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.overlayContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.overlayContent .mobileTop {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 50px;
+}
+
+
+
+.closeBtn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.closeBtn span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.closeBtn span:first-child {
+  transform: rotate(45deg);
+}
+
+.closeBtn span:last-child {
+  transform: rotate(-45deg);
+}
+
+.menuItems {
+  text-align: center;
+}
+
+.menuItems ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItems li {
+  padding: 30px 0;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+/* .menuItems li:nth-child(1) {
+  --i: 1;
+}
+
+.menuItems li:nth-child(2) {
+  --i: 2;
+}
+
+.menuItems li:nth-child(3) {
+  --i: 3;
+}
+
+.menuItems li:nth-child(4) {
+  --i: 4;
+}
+
+.menuItems li:nth-child(5) {
+  --i: 5;
+} */
+
+.menuItems a {
+  color: white;
+  text-decoration: none;
+  font-size: 2.5rem;
+  font-weight: 600;
+  transition: color 0.3s;
+  position: relative;
+  display: inline-block;
+}
+
+.menuItems a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #418FDE;
+  transition: width 0.3s ease;
+}
+
+.menuItems a:hover {
+  color: #418FDE;
+}
+
+.menuItems a:hover::after {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 오버레이 메뉴 반응형 처리 */
+@media only screen and (max-width: 1200px) {
+    .menuItems a {
+        font-size: 2.2rem;
+    }
+    
+    .closeBtn {
+        top: 25px;
+        right: 25px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .overlayContent .mobileTop {
+        padding-bottom: 40px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .menuItems a {
+        font-size: 2rem;
+    }
+    
+    .menuItems li {
+        padding: 25px 0;
+    }
+    
+    .closeBtn {
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .menuItems a {
+        font-size: 1.8rem;
+    }
+    
+    .menuItems li {
+        padding: 20px 0;
+    }
+    
+    .overlayContent .mobileTop {
+        padding-bottom: 30px;
+    }
+    
+    .closeBtn {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .menuItems a {
+        font-size: 1.6rem;
+    }
+    
+    .menuItems li {
+        padding: 18px 0;
+    }
+    
+    .closeBtn {
+        top: 15px;
+        right: 15px;
+        width: 28px;
+        height: 28px;
+    }
+    
+    .overlayContent .mobileTop {
+        padding-bottom: 25px;
+    }
+    
+    /* 애니메이션 속도 조정 */
+    .menuItems li {
+        animation-delay: calc(0.08s * var(--i));
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .menuItems a {
+        font-size: 1.4rem;
+    }
+    
+    .menuItems li {
+        padding: 15px 0;
+    }
+    
+    .closeBtn {
+        top: 15px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+    }
+    
+    .overlayContent .mobileTop {
+        padding-bottom: 20px;
+    }
+    
+    /* 애니메이션 속도 조정 */
+    .menuItems li {
+        animation-delay: calc(0.06s * var(--i));
+    }
+    
+    /* 오버레이 배경 조정 */
+    .fullOverlay {
+        background-color: rgba(0, 0, 0, 0.98);
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .menuItems a {
+        font-size: 1.2rem;
+    }
+    
+    .menuItems li {
+        padding: 12px 0;
+    }
+    
+    .closeBtn {
+        top: 12px;
+        right: 12px;
+        width: 22px;
+        height: 22px;
+    }
+    
+    .overlayContent .mobileTop {
+        padding-bottom: 15px;
+    }
+    
+    /* 애니메이션 속도 조정 */
+    .menuItems li {
+        animation-delay: calc(0.05s * var(--i));
+    }
+    
+    /* 오버레이 배경 조정 */
+    .fullOverlay {
+        background-color: rgba(0, 0, 0, 1);
+    }
+}
+
+/* 가로 모드 모바일 디바이스 대응 */
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+    .menuItems {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .menuItems ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .menuItems li {
+        padding: 10px 15px;
+    }
+    
+    .menuItems a {
+        font-size: 1.2rem;
+    }
+    
+    .overlayContent .mobileTop {
+        padding-bottom: 10px;
+    }
+}
+
+/* 터치 디바이스 최적화 */
+@media (hover: none) {
+    .menuItems a {
+        padding: 8px 12px; /* 터치 영역 확대 */
+    }
+    
+    .closeBtn {
+        padding: 10px; /* 터치 영역 확대 */
+    }
+    
+    /* 터치 디바이스에서 호버 효과 대체 */
+    .menuItems a:active {
+        color: #418FDE;
+    }
+    
+    .menuItems a:active::after {
+        width: 100%;
+    }
+}

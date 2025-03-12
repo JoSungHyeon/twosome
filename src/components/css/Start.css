@@ -1,0 +1,177 @@
+/* main */
+#home #start main {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	gap: 4px 4px;
+	flex-wrap: wrap;
+	overflow: hidden;
+	position: relative;
+}
+
+#home #start video {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	filter: grayscale(100%);
+	object-fit: cover;
+	z-index: 10;
+}
+/* 
+#home #start main::before {
+	position: absolute;
+	content: "";
+	background: linear-gradient(to bottom, transparent 0%, #111 80%);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 12;
+}
+#home #start main::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.2);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 11;
+} */
+
+#home #start main .main_text {
+	position: absolute;
+	max-width: 1200px;
+	width: 100%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 13;
+}
+
+#home #start main .main_text h2 {
+	font-family: "Noto Serif Display", serif;
+	font-size: 5em;
+	font-weight: 600;
+	position: relative;
+	color: #418fde;
+	transition: all 0.5s;
+}
+
+#home #start main .main_text p {
+	color: #fff;
+    font-weight: 300;
+    line-height: 2.5;
+    font-size: 1em;
+    text-shadow: none;
+    letter-spacing: 2px;
+	/* position: absolute; */
+	/* top: 100px; */
+	left: 0px;
+}
+
+.swiper {
+	height: 100%;
+}
+
+.swiper-container {
+	width: 100%;
+	height: 100%;
+  }
+  
+  .swiper-slide {
+	text-align: center;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .swiper-slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  }
+
+.swiper-button-wrap {
+	position: absolute;
+	bottom: 10vh;
+	left: 10vw;
+	display: flex;
+	background-color: rgba(0,0,0,0.6);
+	line-height: 56px;
+	border-radius: 56px;
+	padding: 0 20px;
+	height: 56px;
+	width: 240px;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 100;
+}
+
+.swiper-button-prev a {
+	width: 24px;
+	height: 24px;
+	display: block;
+	cursor: pointer;
+}
+
+.swiper-button-next a {
+	width: 24px;
+	height: 24px;
+	display: block;
+	cursor: pointer;
+}
+
+.swiper-pagination {
+	display: block;
+	display: flex;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	position: static !important;
+	color: #fff !important;
+	gap: 10px;
+}
+
+.swiper-pagination span {
+	display: block;
+	color: #fff;
+}
+
+.swiper-pagination span:first-child {
+	font-weight: 600;
+}
+@media only screen and (max-width: 1200px) {
+	#home #start main .main_text {
+		padding: 0 20px;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	#home #start header .inner {
+		height: 80px;
+	}
+	#home #start header .pc_menu {
+		display: none;
+	}
+
+	#home #start .mobile_menu {
+		display: block;
+	}
+
+	#home #start main .main_text h2 {
+		font-size: 3em;
+	}
+
+	#home .main_text {
+		font-size: 13px;
+	}
+
+	#home #start main .main_text {
+		padding: 0 20px;
+	}
+}
